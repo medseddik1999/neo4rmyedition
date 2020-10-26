@@ -40,7 +40,7 @@ call_neo4j <- function(query, con,
                        output = c("r", "json"),
                        include_stats = FALSE,
                        include_meta = FALSE) {
-  # browser()
+  #browser()
   stop_if_not(
     con, ~"Neo4JAPI" %in% class(.x),
     "Please use a Neo4JAPI object."
@@ -57,7 +57,8 @@ call_neo4j <- function(query, con,
   query_jsonised <- to_json_neo(query_clean, include_stats, include_meta, type)
   # Unfortunately I was not able to programmatically convert everything to JSON
   body <- glue('{"statements" : [ %query_jsonised% ]}', .open = "%", .close = "%")
-  if (con$isV4 == TRUE ) {
+
+  if (con$is_V4 == TRUE ) {
     turl = glue("{con$url}/db/{con$db}/tx/commit?includeStats=true")
   } else {
     turl = glue("{con$url}/db/data/transaction/commit?includeStats=true")
@@ -76,7 +77,10 @@ call_neo4j <- function(query, con,
   )
 
   # Verify the status code is 200
-  stop_if_not(status_code(res), ~.x == 200, "API error")
+  if (status_code(res)!=200){
+    con$last_error <- list( status=FALSE, result=res)
+  }
+  stop_if_not(status_code(res), ~.x == 200, "Neo4j API error")
   # return(res)
 
   # Return the parsed output, to json or to R

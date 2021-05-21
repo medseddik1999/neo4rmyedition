@@ -31,7 +31,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' connect <- neo4j_api$new(url = "http://localhost:7474"", user = "neo4j", password = "password" , db = "neo4j, is_V4 = TRUE)
+#' connect <- neo4j_api$new(url = "http://localhost:7474"", user = "neo4j", password = "pwd" , db = "neo4j")
 #' }
 #'
 #'

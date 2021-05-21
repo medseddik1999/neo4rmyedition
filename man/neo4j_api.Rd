@@ -33,13 +33,6 @@ A Neo4J Connexion
 }
 }
 
-\examples{
-\dontrun{
-connect <- neo4j_api$new(url = "http://localhost:7474"", user = "neo4j", password = "password" , db = "neo4j, is_V4 = TRUE)
-}
-
-
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -50,6 +43,7 @@ connect <- neo4j_api$new(url = "http://localhost:7474"", user = "neo4j", passwor
 \item \href{#method-reset_password}{\code{neo4j_api$reset_password()}}
 \item \href{#method-access}{\code{neo4j_api$access()}}
 \item \href{#method-ping}{\code{neo4j_api$ping()}}
+\item \href{#method-endpoint_up}{\code{neo4j_api$endpoint_up()}}
 \item \href{#method-get_version}{\code{neo4j_api$get_version()}}
 \item \href{#method-get_info}{\code{neo4j_api$get_info()}}
 \item \href{#method-get_relationships}{\code{neo4j_api$get_relationships()}}
@@ -120,6 +114,15 @@ connect <- neo4j_api$new(url = "http://localhost:7474"", user = "neo4j", passwor
 \subsection{Method \code{ping()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{neo4j_api$ping()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-endpoint_up"></a>}}
+\if{latex}{\out{\hypertarget{method-endpoint_up}{}}}
+\subsection{Method \code{endpoint_up()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{neo4j_api$endpoint_up()}\if{html}{\out{</div>}}
 }
 
 }

@@ -4,11 +4,9 @@
 on:
   push:
     branches:
-      - main
       - master
   pull_request:
     branches:
-      - main
       - master
 
 name: R-CMD-functional
@@ -19,7 +17,7 @@ jobs:
 
     services:
       neo4j:
-        image: neo4j:3.5
+        image: neo4j:${{matrix.neo4j-version}}
         ports:
           - 7474:7474
         env:
@@ -37,6 +35,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        neo4j-version:
+          - "3.5-enterprise"
+          - "4.4-enterprise"
         config:
           - {os: ubuntu-20.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
 
@@ -82,5 +83,3 @@ jobs:
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
-
-

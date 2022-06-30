@@ -56,7 +56,7 @@ neo4j_api <- R6::R6Class(
     bolt_routing = character(0),
     bolt_direct = character(0),
     ping_query = 'call db.ping()',
-    exceptions_4x = list("4.0.0", "4.0.1", "4.0.2", "4.0.3"),
+    exceptions_4x = list("4.0.0", "4.0.1", "4.1.11", "4.0.3"),
     databases = tibble(0),
     endpointUp = list(),
     alt_ping_query = 'with true as success return success',

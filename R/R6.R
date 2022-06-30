@@ -75,7 +75,7 @@ neo4j_api <- R6::R6Class(
         cat("(Wrong credentials or hostname)\n")
       }
     },
-    initialize = function(url,  user, password,db="neo4j", is_V4 = TRUE) {
+    initialize = function(url,  user, password,db="neo4j", is_V4 ) {
       # browser()
       # Clean url in case it ends with a /
       if (grepl("bolt", url)) {
